@@ -1,0 +1,15 @@
+{
+	"name": "Texto",
+	"plugin-id": "Text",
+	"sid": 277649911031174,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Atrelar",
+			"sid": 426484972610946
+		}
+	],
+	"effectTypes": []
+}

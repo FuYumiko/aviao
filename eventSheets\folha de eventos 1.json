@@ -1,0 +1,390 @@
+{
+	"name": "Folha de eventos 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "estadoDoJogo",
+			"type": "string",
+			"initialValue": "jogando",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 344708047217182
+		},
+		{
+			"eventType": "variable",
+			"name": "pontos",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 705333763484728
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Mouse",
+					"sid": 645611299028676,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-velocity",
+					"objectClass": "aviao",
+					"sid": 532833823413176,
+					"behaviorType": "Física",
+					"parameters": {
+						"x-component": "0",
+						"y-component": "0"
+					}
+				},
+				{
+					"id": "apply-force",
+					"objectClass": "aviao",
+					"sid": 692693866880285,
+					"behaviorType": "Física",
+					"parameters": {
+						"force-x": "0",
+						"force-y": "-400",
+						"image-point": "0"
+					}
+				}
+			],
+			"sid": 896852382213408
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-x",
+					"objectClass": "FundoEmBlocos",
+					"sid": 146886125292292,
+					"parameters": {
+						"comparison": 2,
+						"x-co-ordinate": "-800"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-x",
+					"objectClass": "FundoEmBlocos",
+					"sid": 330993615897068,
+					"parameters": {
+						"x": "0"
+					}
+				}
+			],
+			"sid": 469730064525055
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 111546839386821,
+					"parameters": {
+						"interval-seconds": "1.5"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 945329052948306,
+					"parameters": {
+						"object-to-create": "Sprite",
+						"layer": "0",
+						"x": "903",
+						"y": "random(365, 465)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 961532957823599,
+					"parameters": {
+						"object-to-create": "Sprite2",
+						"layer": "0",
+						"x": "Sprite.X",
+						"y": "Sprite.Y -400",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 520719792984266,
+					"parameters": {
+						"object-to-create": "Sprite5",
+						"layer": "0",
+						"x": "Sprite.x",
+						"y": "Sprite.y-200",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 860822629432897
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "aviao",
+					"sid": 631268456003896,
+					"parameters": {
+						"object": "Sprite2"
+					}
+				},
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "aviao",
+					"sid": 707338359493001,
+					"parameters": {
+						"object": "Sprite"
+					}
+				},
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "aviao",
+					"sid": 757757503451047,
+					"parameters": {
+						"object": "chao"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "aviao",
+					"sid": 599230786420831,
+					"behaviorType": "Física",
+					"parameters": {
+						"mode": "disabled"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 530986896522503,
+					"parameters": {
+						"variable": "estadoDoJogo",
+						"value": "\"gameOver\""
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Sprite3",
+					"sid": 783224800772912,
+					"parameters": {
+						"x": "375",
+						"y": "200"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Sprite4",
+					"sid": 844905560547183,
+					"parameters": {
+						"x": "375",
+						"y": "300"
+					}
+				}
+			],
+			"sid": 283959987587033,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 913001902065875,
+					"parameters": {
+						"variable": "estadoDoJogo",
+						"comparison": 1,
+						"value": "\"jogando\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Sprite",
+					"sid": 771892956830493,
+					"behaviorType": "Projétil",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Sprite2",
+					"sid": 525379165003107,
+					"behaviorType": "Projétil",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "FundoEmBlocos",
+					"sid": 824675230861263,
+					"behaviorType": "Projétil",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "chao",
+					"sid": 493489626443888,
+					"behaviorType": "Projétil",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Sprite5",
+					"sid": 416319395378358,
+					"behaviorType": "Projétil",
+					"parameters": {
+						"state": "disabled"
+					}
+				}
+			],
+			"sid": 663843799107940
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-x",
+					"objectClass": "chao",
+					"sid": 957123016634082,
+					"parameters": {
+						"comparison": 3,
+						"x-co-ordinate": "-406"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-x",
+					"objectClass": "chao",
+					"sid": 862683788716596,
+					"parameters": {
+						"x": "1187"
+					}
+				}
+			],
+			"sid": 280292167441222
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 676854066593894
+				}
+			],
+			"actions": [
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Texto",
+					"sid": 739442406460370,
+					"behaviorType": "Atrelar",
+					"parameters": {
+						"pin-to": "Sprite4",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				}
+			],
+			"sid": 724103889987416
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 654380660980931,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Sprite4"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 503604787570029
+				},
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 172142659418414
+				}
+			],
+			"sid": 411328775643064
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "aviao",
+					"sid": 333266575722617,
+					"parameters": {
+						"object": "Sprite5"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 769815087052836,
+					"parameters": {
+						"variable": "pontos",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Texto2",
+					"sid": 376757001394315,
+					"parameters": {
+						"text": "pontos"
+					}
+				}
+			],
+			"sid": 762162314615354
+		}
+	],
+	"sid": 106643346443603
+}

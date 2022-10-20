@@ -1,0 +1,26 @@
+{
+	"name": "FundoEmBlocos",
+	"plugin-id": "TiledBg",
+	"sid": 765104876916309,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Projétil",
+			"sid": 252762004076256
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 800,
+		"height": 480,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 7278760,
+		"useCollisionPoly": true
+	}
+}
